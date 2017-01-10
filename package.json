@@ -4,7 +4,7 @@
   "description": "super simple auth for browser",
   "main": "dist/simple-auth-client.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"finish test\"",
     "dev": "rollup -c --watch",
     "reload": "livereload 'dist/' -d",
     "watch": "npm-run-all --parallel reload dev",
