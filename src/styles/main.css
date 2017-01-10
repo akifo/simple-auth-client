@@ -1,0 +1,27 @@
+#_____SimpleAuthClient_____ {
+  position: fixed;
+  z-index: 2147483647;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ._____SAC_____container {
+    flex: 0 1 50%;
+    max-width: 500px;
+    height: 400px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    form {
+      flex: 0 0 90%;
+    }
+  }
+
+}
+
