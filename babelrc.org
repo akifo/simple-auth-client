@@ -1,0 +1,11 @@
+{
+  "presets": "es2015-rollup",
+  "plugins": [
+    "syntax-flow",
+    ["flow-runtime", {
+      "assert": true,
+      "decorate": true
+    }],
+    "transform-flow-strip-types"
+  ]
+}
