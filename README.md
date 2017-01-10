@@ -1,6 +1,9 @@
 # simple-auth-client
 
 [![Build Status](https://travis-ci.org/akifo/simple-auth-client.svg?branch=master)](https://travis-ci.org/akifo/simple-auth-client)
+[![npm](https://img.shields.io/npm/v/simple-auth-client.svg)](https://www.npmjs.com/package/simple-auth-client)
+[![npm](https://img.shields.io/npm/l/simple-auth-client.svg)](https://github.com/akifo/simple-auth-client/blob/master/LICENSE.md)
+
 
 ## Rollup を使って npmモジュール
 
