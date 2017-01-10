@@ -1,5 +1,7 @@
 # simple-auth-client
 
+[![Build Status](https://travis-ci.org/akifo/simple-auth-client.svg?branch=master)](https://travis-ci.org/akifo/simple-auth-client)
+
 ## Rollup を使って npmモジュール
 
 Rollup のプラグインを使いこなすのがポイント。
