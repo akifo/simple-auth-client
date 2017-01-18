@@ -4,6 +4,42 @@
 [![npm](https://img.shields.io/npm/v/simple-auth-client.svg)](https://www.npmjs.com/package/simple-auth-client)
 [![npm](https://img.shields.io/npm/l/simple-auth-client.svg)](https://github.com/akifo/simple-auth-client/blob/master/LICENSE.md)
 
+## Features
+
+- AAAA
+- AAAA
+- AAAA
+- AAAA
+
+## Installation
+
+### NPM
+
+```bash
+$ bower install simple-auth-client --save
+```
+
+### Bower
+
+```bash
+$ npm install simple-auth-client --save
+```
+
+## Usage
+
+
+### commonJs
+
+```javascript
+var SimpleAuthClient = require('simple-auth-client');
+```
+
+### AMD
+
+```javascript
+<script src='/js/simple-auth-client.min.js'></script>
+```
+
 
 ## Rollup を使って npmモジュール
 

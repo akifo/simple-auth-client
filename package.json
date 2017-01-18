@@ -5,7 +5,7 @@
   "main": "dist/simple-auth-client.min.js",
   "scripts": {
     "test": "echo \"finish test\"",
-    "dev": "rollup -w -c",
+    "dev": "TARGET=web-runtime-dev rollup -c build/config.js -w",
     "reload": "livereload 'dist/' -d",
     "watch": "npm-run-all --parallel reload dev",
     "build": "npm run build:dev && npm run build:dev:runtime && npm run build:prod",

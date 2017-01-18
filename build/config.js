@@ -5,6 +5,8 @@ import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import replace from 'rollup-plugin-replace';
 import uglify from 'rollup-plugin-uglify';
+import html from 'rollup-plugin-html';
+import postcss from 'rollup-plugin-postcss';
 
 // version manage
 const version = require('../package.json').version;
@@ -57,6 +59,18 @@ function genConfig (opts) {
     moduleName: 'SimpleAuthClient',
     sourceMap: opts.sourceMap,
     plugins: [
+      html({
+        include: '**/*.html'
+      }),
+      postcss({
+        // plugins: [
+        //   simplevars(),
+        //   nested(),
+        //   cssnext({warnForDuplicates: false}),
+        //   cssnano()
+        // ],
+        extensions: ['.css'],
+      }),
       resolve({
         jsnext: true,
         browser: true

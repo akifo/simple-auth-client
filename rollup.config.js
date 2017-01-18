@@ -28,12 +28,12 @@ export default {
     //   include: '**/*.html'
     // }),
     // postcss({
-    //   plugins: [
-    //     simplevars(),
-    //     nested(),
-    //     cssnext({warnForDuplicates: false}),
-    //     cssnano()
-    //   ],
+      // plugins: [
+      //   simplevars(),
+      //   nested(),
+      //   cssnext({warnForDuplicates: false}),
+      //   cssnano()
+      // ],
     //   extensions: ['.css'],
     // }),
     resolve({
