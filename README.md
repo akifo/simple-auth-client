@@ -4,6 +4,8 @@
 [![npm](https://img.shields.io/npm/v/simple-auth-client.svg)](https://www.npmjs.com/package/simple-auth-client)
 [![npm](https://img.shields.io/npm/l/simple-auth-client.svg)](https://github.com/akifo/simple-auth-client/blob/master/LICENSE.md)
 
+**Don't use!! It's still dev**
+
 ## Features
 
 - AAAA
