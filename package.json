@@ -24,7 +24,7 @@
     "client",
     "browser"
   ],
-  "author": "akifo <akiho.nagao@gmail.com>",
+  "author": "Akiho Nagao <akiho.nagao@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/akifo/simple-auth-client/issues"

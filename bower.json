@@ -3,7 +3,7 @@
   "description": "super simple auth for browser",
   "main": "dist/simple-auth-client.min.js",
   "authors": [
-    "akifo <akiho.nagao@gmail.com>"
+    "Akiho Nagao <akiho.nagao@gmail.com>"
   ],
   "license": "MIT",
   "keywords": [
