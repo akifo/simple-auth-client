@@ -18,13 +18,13 @@
 
 [Github](https://github.com/akifo/simple-auth-client/archive/master.zip)
 
-### NPM
+### Bower
 
 ```bash
 $ bower install simple-auth-client --save
 ```
 
-### Bower
+### NPM
 
 ```bash
 $ npm install simple-auth-client --save
