@@ -8,12 +8,15 @@
 
 ## Features
 
-- AAAA
-- AAAA
-- AAAA
-- AAAA
+- Server unnecessary
+- Simple authentication system that operates only on the browser side
+- Not secure
 
 ## Installation
+
+### Donwload Manually
+
+[Github](https://github.com/akifo/simple-auth-client/archive/master.zip)
 
 ### NPM
 
@@ -29,47 +32,27 @@ $ npm install simple-auth-client --save
 
 ## Usage
 
-
-### commonJs
-
-```javascript
-var SimpleAuthClient = require('simple-auth-client');
-```
-
-### AMD
+### Load from HTML
 
 ```javascript
-<script src='/js/simple-auth-client.min.js'></script>
+<script src='/lib/simple-auth-client.min.js'></script>
 ```
 
+### With a module system
 
-## Rollup を使って npmモジュール
+```javascript
+import SimpleAuthClient from 'simple-auth-client'
+```
 
-Rollup のプラグインを使いこなすのがポイント。
+## Development
 
-### rollup-plugin-node-resolve
-- ``node_modules/``ディレクトリ内のパッケージもモジュールの検索対象に含んでくれる。
-- ``jsnext: true``を設定すると、各モジュールの``package.json``の``jsnext:main``に指定されている ES6 module で書かれているコンパイル前のソースを参照する。
+```bash
+# serve livereload and watch 
+$ npm run watch 
 
-### rollup-plugin-commonjs
-- CJSでしか使えない npm パッケージを使えるようになる。
+# build for production
+$ npm run build
+```
 
-### rollup-plugin-replace
-- 
-
-## その他の npmモジュール
-
-### debug
-基本的には、CJSでしか使えないモジュールだけど、``rollup-plugin-commonjs``の力で、ブラウザでも使えるようにして利用する。
-開発中にだけログを吐き出すような設定が可能で便利。
-カラー付き！
-
-
-
-
-
-
-DOMContentLoaded とかをうまく考えないと、bodyに新しいエレメントを追加できない。
-headでscript読み込んで、即bodyにエレメント追加したい。
-パスワードは案内ページで暗号化できるようにしておいて、
-その暗号化されたパスワード一覧をtextかなんかで読み込むようにして、プログラムで使うようにする。
+## For only Japanese 
+[How to build a module with using **rollup**(Japanses/日本語)](rollup.md)
