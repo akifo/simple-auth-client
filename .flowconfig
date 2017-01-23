@@ -2,8 +2,10 @@
 .*/node_modules/.*
 .*/test/.*
 .*/build/.*
+.*/node_modules/js-coolie/src/js.cookie.js
 
 [include]
+./node_modules/
 
 [libs]
 ./flow

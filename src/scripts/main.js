@@ -4,12 +4,14 @@
 -------------------------------------------------------------- */
 import tpl from '../html/main.html';
 import '../styles/main.css';
+import Cookies from 'js-cookie.js';
 
 /* Settings
 -------------------------------------------------------------- */
 const SAC_WRAP_ID:string = '_____SAC_____Wrap';
-const SAC_PASS_ID:string = '_____SAC_____Password';
-const SAC_DIALOG_ID:string = '_____SAC_____Dialog';
+const SAC_FORM_BOX:string = '_____SAC_____Form_Box';
+const SAC_PASS_ID:string = '_____SAC_____Form_Password';
+const SAC_DIALOG_LIST_ID:string = '_____SAC_____Dialog_List';
 
 /* Only developement Enable LiveReload
 -------------------------------------------------------------- */
@@ -31,53 +33,123 @@ let settings:PropOptions = {
   password: 'test',
   style: 'basic'
 };
-let $SAC:HTMLElement;
 
 
-/* Functions
+/* Objects
 -------------------------------------------------------------- */
-// success auth
-const removeAuthView = () => {
 
-  console.log('success auth aaa');
+const sac: {
+  $sac?: HTMLElement;
+  constructor: Function;
+  remove: Function
+} = {
 
-  // remove auth view
-  $SAC.remove();
+  $sac: undefined,
 
-  // set localstrage in 10 minutes
+  // create SimpleAuthClient Element to DOM
+  constructor () {
+    this.$sac = document.createElement('div');
+    this.$sac.id = SAC_WRAP_ID;
+    this.$sac.innerHTML = tpl;
+    document.body.appendChild(this.$sac);
+    dialog.constructor();
+    // get the password html input element
+    SimpleAuthClient.$password = document.getElementById(SAC_PASS_ID);
+
+  },
+
+  // remove SAC view
+  remove () {
+    const self = this;
+    setTimeout(() => {
+      self.$sac.remove();
+    }, 4000);
+  }
 
 };
 
-// dialog
-const dialog = (result, msg) => {
-  const $dialog:HTMLElement = document.getElementById(SAC_DIALOG_ID);
-  $dialog.innerText = msg;
-  $dialog.className = 'active success';
-  setTimeout(() => {
-    $dialog.className = 'remove';
-  }, 3000);
-  setTimeout(() => {
-    $dialog.innerText = '';
-    $dialog.className = '';
-  }, 4000);
-  console.log('auth dialog', result, msg, $dialog);
+const form: {
+  $form?: HTMLElement;
+  remove: Function;
+} = {
+
+  $form: undefined,
+
+  // hidden form Box with animate
+  remove () {
+    const target =document.getElementById(SAC_FORM_BOX);
+    target.className = '';
+  },
+
 };
 
-// create SimpleAuthClient Element to DOM
-const createSacElement = () => {
-  $SAC = document.createElement('div');
-  $SAC.id = SAC_WRAP_ID;
-  $SAC.innerHTML = tpl;
-  document.body.appendChild($SAC);
+const dialog: {
+  $dialog?: HTMLElement;
+  constructor: Function;
+  show: Function
+} = {
+  $dialog: undefined,
+
+  constructor () {
+    this.$dialog = document.getElementById(SAC_DIALOG_LIST_ID);
+  },
+
+  show (result: string, msg: string) {
+
+    const $msg:HTMLElement = document.createElement('li');
+
+    $msg.className = result;
+    $msg.innerText = msg;
+    this.$dialog.appendChild($msg);
+
+    setTimeout(() => {
+      $msg.className += ' active';
+    }, 100);
+
+    setTimeout(() => {
+      $msg.className = result + ' remove';
+    }, 3000);
+
+    setTimeout(() => {
+      $msg.remove();
+    }, 4000);
+
+  }
+
+};
+
+// docCookies
+const docCookies: {
+  get: Function;
+  set: Function;
+} = {
+
+  get () {
+    Cookies.get('name');
+  },
+
+  set (value: string) {
+    Cookies.set('name', value);
+  }
+
 };
 
 /* export object
 -------------------------------------------------------------- */
-const SimpleAuthClient = {
+const SimpleAuthClient: {
+  $password?: HTMLElement;
+  password: Array<string>;
+  start: Function;
+  submit: Function;
+} = {
 
+  $password : undefined,
   password: [],
 
   start (options?: PropOptions) {
+
+    docCookies.set('aaa');
+    console.log(docCookies.get());
 
     // Merge options
     Object.assign(settings, options);
@@ -85,11 +157,11 @@ const SimpleAuthClient = {
     // script was loaded at the head of document
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', function() {
-        createSacElement();
+        sac.constructor();
       });
 
     } else { // script was loaded at the end of document
-      createSacElement();
+      sac.constructor();
       console.warn('SimpleAuthClient should load at head element');
     }
 
@@ -97,19 +169,22 @@ const SimpleAuthClient = {
     if (typeof settings.password === 'string') this.password.push(settings.password);
     else if (typeof settings.password === 'number') this.password.push(settings.password.toString());
     else if (Array.isArray(settings.password)) Object.assign(this.password, settings.password);
-    console.log(this.password);
 
   },
 
   submit () {
-    const target =document.getElementById(SAC_PASS_ID);
-    if (!(target instanceof HTMLInputElement)) return;
-    var password = target.value.trim();
+    const password = this.$password.value.trim();
+
+    // success auth
     if (this.password.includes(password)) {
-      removeAuthView();
+      dialog.show('success', 'Auth Success');
+      form.remove();
+      sac.remove();
+      // strage.set(password);
+      docCookies.set('aaa');
       return false;
     }
-    dialog(false, 'failed');
+    dialog.show('alert', 'Auth Failed');
     return false;
   }
 };

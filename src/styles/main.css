@@ -1,6 +1,6 @@
-#_____SimpleAuthClient_____ {
+#_____SAC_____Form_Box {
   position: fixed;
-  z-index: 2147483647;
+  z-index: 2147483646;
   top: 0;
   left: 0;
   right: 0;
@@ -13,8 +13,14 @@
   background-image: linear-gradient(-45deg, #f1f1f1 25%, transparent 25%,
                     transparent 50%, #f1f1f1 50%, #f1f1f1 75%,
                     transparent 75%, transparent);
+  transition: opacity ease 1s;
+  opacity: 0;
 
-  ._____SAC_____container {
+  &.active {
+    opacity: 1;
+  }
+
+  ._____SAC_____Form_container {
     position: relative;
     z-index: 2;
     flex: 0 1 50%;
@@ -27,15 +33,14 @@
     animation-name: fadeInDownSAC;
     padding: 20px 40px;
 
-
-    ._____SAC_____title {
+    ._____SAC_____Form_title {
       padding: 0;
       margin: 20px 0 10px;
       font-size: 20px;
       font-weight: 800;
     }
 
-    ._____SAC_____description {
+    ._____SAC_____Form_description {
       padding: 0;
       margin: 10px 0 20px;
       font-size: 12px;
@@ -91,40 +96,51 @@
 
   }
 
-  #_____SAC_____Dialog {
-    z-index: 3;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: auto;
-    border-width: 1px;
-    border-style: solid;
-    padding: 10px 20px;
-    opacity: 0;
-    transition: all ease 1s;
-    transform: translateY(30px);
+}
 
-    &.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
+._____SAC_____Dialog_Box {
+  z-index: 2147483647;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: auto;
 
-    &.remove {
+  #_____SAC_____Dialog_List {
+
+    li {
+      border-width: 1px;
+      border-style: solid;
+      margin: 10px;
+      padding: 10px 20px;
       opacity: 0;
-      transform: translateY(-100px);
+      transition: all ease 1s;
+      transform: translateY(30px);
+      list-style: none;
+
+      &.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      &.remove {
+        opacity: 0;
+        transform: translateY(-100px);
+      }
+
+      &.success {
+        color: #fff;
+        background-color: color(#16a085 a(80%));
+        border-color: #16a085;
+      }
+
+      &.alert {
+        color: #fff;
+        background-color: color(#c0392b a(80%));
+        border-color: #c0392b;
+      }
+
     }
 
-    &.success {
-      color: #fff;
-      background-color: green;
-      border-color: red;
-    }
-
-    &.alert {
-      color: #fff;
-      background-color: red;
-      border-color: green;
-    }
   }
 
 }
