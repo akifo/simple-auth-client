@@ -12,6 +12,7 @@
     "build:dev": "TARGET=web-dev rollup -c build/config.js",
     "build:dev:runtime": "TARGET=web-runtime-dev rollup -c build/config.js",
     "build:prod": "NODE_ENV=production TARGET=web-prod rollup -c build/config.js",
+    "lint": "eslint --config .eslintrc.json --format compact src",
     "flow": "flow check src"
   },
   "repository": {

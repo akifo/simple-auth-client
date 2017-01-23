@@ -16,21 +16,21 @@
         "sourceType": "module"
     },
     "rules": {
-        "indent": [
-            "error",
-            2
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
+        // "indent": [
+        //     "error",
+        //     2
+        // ],
+        // "linebreak-style": [
+        //     "error",
+        //     "unix"
+        // ],
         "no-console": 0,
         "flowtype/define-flow-type": 1,
         "flowtype/use-flow-type": 1,
-        "quotes": [
-            "error",
-            "single"
-        ],
+        // "quotes": [
+        //     "error",
+        //     "single"
+        // ],
         "semi": [
             "error",
             "always"

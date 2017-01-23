@@ -8,6 +8,12 @@ import uglify from 'rollup-plugin-uglify';
 import html from 'rollup-plugin-html';
 import postcss from 'rollup-plugin-postcss';
 
+// PostCSS plugins
+// import simplevars from 'postcss-simple-vars';
+import nested from 'postcss-nested';
+import cssnext from 'postcss-cssnext';
+// import cssnano from 'cssnano';
+
 // version manage
 const version = require('../package.json').version;
 
@@ -63,12 +69,12 @@ function genConfig (opts) {
         include: '**/*.html'
       }),
       postcss({
-        // plugins: [
+        plugins: [
         //   simplevars(),
-        //   nested(),
-        //   cssnext({warnForDuplicates: false}),
-        //   cssnano()
-        // ],
+          nested(),
+          cssnext({warnForDuplicates: false})
+          // cssnano()
+        ],
         extensions: ['.css'],
       }),
       resolve({
