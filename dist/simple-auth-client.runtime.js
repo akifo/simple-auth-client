@@ -1,5 +1,5 @@
 /*!
- * SimpleAuthClient.js v1.0.3
+ * SimpleAuthClient.js v1.0.4
  * (c) 2017-2017 Akiho Nagao
  * Released under the MIT License.
  */

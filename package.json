@@ -14,7 +14,8 @@
     "build:dev:runtime": "TARGET=web-runtime-dev rollup -c build/config.js",
     "build:prod": "NODE_ENV=production TARGET=web-prod rollup -c build/config.js",
     "lint": "eslint --config .eslintrc.json --format compact src",
-    "flow": "flow check src"
+    "flow": "flow check src",
+    "deploy": "npm run build && git add . && git commit -m \"build for release\" && npm version patch && git push && git push origin --tags ** npm publish"
   },
   "repository": {
     "type": "git",
