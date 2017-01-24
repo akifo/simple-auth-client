@@ -4,7 +4,7 @@
 -------------------------------------------------------------- */
 import tpl from '../html/main.html';
 import '../styles/main.css';
-import Cookies from 'js-cookie.js';
+import Cookies from 'js-cookie';
 
 /* Settings
 -------------------------------------------------------------- */
@@ -12,6 +12,7 @@ const SAC_WRAP_ID:string = '_____SAC_____Wrap';
 const SAC_FORM_BOX:string = '_____SAC_____Form_Box';
 const SAC_PASS_ID:string = '_____SAC_____Form_Password';
 const SAC_DIALOG_LIST_ID:string = '_____SAC_____Dialog_List';
+const SAC_COOKIE_PASS_KEY:string = '6rtzmCrPCfv0chRmSM0I4CIASQ1TQ4';
 
 /* Only developement Enable LiveReload
 -------------------------------------------------------------- */
@@ -55,7 +56,6 @@ const sac: {
     dialog.constructor();
     // get the password html input element
     SimpleAuthClient.$password = document.getElementById(SAC_PASS_ID);
-
   },
 
   // remove SAC view
@@ -118,19 +118,28 @@ const dialog: {
 
 };
 
-// docCookies
-const docCookies: {
-  get: Function;
-  set: Function;
+const auth: {
+  password: Array<string>;
+  setPasswordArray: Function;
+  check: Function;
 } = {
 
-  get () {
-    Cookies.get('name');
+  password: [],
+
+  setPasswordArray (options?: PropOptions) {
+    Object.assign(settings, options);
+    if (typeof settings.password === 'string') this.password.push(settings.password);
+    else if (typeof settings.password === 'number') this.password.push(settings.password.toString());
+    else if (Array.isArray(settings.password)) Object.assign(this.password, settings.password);
   },
 
-  set (value: string) {
-    Cookies.set('name', value);
+  check (password: string) {
+    return new Promise((resolve, reject) => {
+      if (this.password.includes(password)) resolve();
+      reject();
+    });
   }
+
 
 };
 
@@ -138,37 +147,32 @@ const docCookies: {
 -------------------------------------------------------------- */
 const SimpleAuthClient: {
   $password?: HTMLElement;
-  password: Array<string>;
   start: Function;
   submit: Function;
 } = {
 
   $password : undefined,
-  password: [],
 
   start (options?: PropOptions) {
 
-    docCookies.set('aaa');
-    console.log(docCookies.get());
-
-    // Merge options
-    Object.assign(settings, options);
-
-    // script was loaded at the head of document
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function() {
-        sac.constructor();
-      });
-
-    } else { // script was loaded at the end of document
-      sac.constructor();
-      console.warn('SimpleAuthClient should load at head element');
-    }
-
     // Password to Array
-    if (typeof settings.password === 'string') this.password.push(settings.password);
-    else if (typeof settings.password === 'number') this.password.push(settings.password.toString());
-    else if (Array.isArray(settings.password)) Object.assign(this.password, settings.password);
+    auth.setPasswordArray(options);
+
+    auth.check(Cookies.get(SAC_COOKIE_PASS_KEY))
+    .catch(() => {
+
+      // script was loaded at the head of document
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          sac.constructor();
+        });
+
+      } else { // script was loaded at the end of document
+        sac.constructor();
+        console.warn('SimpleAuthClient should load at head element');
+      }
+
+    });
 
   },
 
@@ -176,15 +180,15 @@ const SimpleAuthClient: {
     const password = this.$password.value.trim();
 
     // success auth
-    if (this.password.includes(password)) {
+    auth.check(password).then(() => {
       dialog.show('success', 'Auth Success');
       form.remove();
       sac.remove();
-      // strage.set(password);
-      docCookies.set('aaa');
-      return false;
-    }
-    dialog.show('alert', 'Auth Failed');
+      Cookies.set(SAC_COOKIE_PASS_KEY, password, { expires: 1 });
+    }).catch(() => {
+      dialog.show('alert', 'Auth Failed');
+    });
+
     return false;
   }
 };

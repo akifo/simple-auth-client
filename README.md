@@ -36,18 +36,40 @@ $ npm install simple-auth-client --save
 
 ```javascript
 <script src='/lib/simple-auth-client.min.js'></script>
+
+<script>
+  SimpleAuthClient.start({
+    password: 'foo'
+  });
+</script>
 ```
 
 ### With a module system
 
 ```javascript
 import SimpleAuthClient from 'simple-auth-client'
+
+SimpleAuthClient.start({
+  password: 'foo'
+});
 ```
+
+## Options
+
+now writing...
 
 ## Development
 
 ```bash
-# serve livereload and watch 
+# install
+$ npm install
+
+# flow-typed CLI installed
+$ npm install -g flow-typed
+# flow-typed install
+$ flow-typed install
+
+# serve livereload and watch at http://localhost:8080/
 $ npm run watch 
 
 # build for production
