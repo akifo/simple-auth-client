@@ -7,6 +7,7 @@ import replace from 'rollup-plugin-replace';
 import uglify from 'rollup-plugin-uglify';
 import html from 'rollup-plugin-html';
 import postcss from 'rollup-plugin-postcss';
+import yaml from 'rollup-plugin-yaml';
 
 // PostCSS plugins
 // import simplevars from 'postcss-simple-vars';
@@ -76,6 +77,10 @@ function genConfig (opts) {
           // cssnano()
         ],
         extensions: ['.css'],
+      }),
+      yaml({
+      include: 'src/data/*.yaml',
+      exclude: 'node_modules/**',
       }),
       resolve({
         jsnext: true,

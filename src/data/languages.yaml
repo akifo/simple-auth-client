@@ -1,0 +1,170 @@
+# 英語
+en:
+  title: Simple Auth
+  desc: Please enter the password.
+  placeholder: password
+  btn: Submit
+  successMsg: Auth Success
+  FailedMsg: Auth Failed
+
+# 日本語
+ja:
+  title: 認証
+  desc: パスワードを入力してください。
+  placeholder: パスワード
+  btn: 決定
+  successMsg: 認証成功
+  FailedMsg: 認証失敗
+
+# 中国語
+zh:
+  title: 验证
+  desc: 请输入密码。
+  placeholder: 密码
+  btn: 提交
+  successMsg: 认证成功
+  FailedMsg: 验证失败
+
+# ヒンディー語
+hi:
+  title: प्रमाणीकरण
+  desc: पासवर्ड दर्ज करें।
+  placeholder: पासवर्ड
+  btn: जमा करें
+  successMsg: प्रमाणीकरण सफलता
+  FailedMsg: प्रमाणीकरण विफल होना
+
+# スペイン語
+es:
+  title: Autenticación
+  desc: Por favor introduzca la contraseña.
+  placeholder: contraseña
+  btn: Enviar
+  successMsg: Authentication Success
+  FailedMsg: Error de autenticación
+
+# アラビア語
+ar:
+  title: المصادقة
+  desc: يرجى إدخال كلمة المرور.
+  placeholder: كلمه السر
+  btn: عرض
+  successMsg: النجاح مصادقة
+  FailedMsg: المصادقة فشلت
+
+# ベンガル語
+bn:
+  title: প্রমাণীকরণ
+  desc: পাসওয়ার্ড লিখুন.
+  placeholder: পাসওয়ার্ড
+  btn: জমা দিন
+  successMsg: প্রমাণীকরণ সাফল্য
+  FailedMsg: প্রমাণীকরণ ব্যর্থ হয়েছে
+
+# ポルトガル語
+pt:
+  title: Autenticação
+  desc: Por favor insira a senha.
+  placeholder: senha
+  btn: Enviar
+  successMsg: Sucesso de autenticação
+  FailedMsg: Falha na autenticação
+
+# ロシア語
+ru:
+  title: Аутентификация
+  desc: Пожалуйста, введите пароль.
+  placeholder: пароль
+  btn: Отправить
+  successMsg: Аутентификация Успех
+  FailedMsg: Ошибка аутентификации
+
+# ドイツ語
+de:
+  title: Authentifizierung
+  desc: Bitte geben Sie das Passwort ein.
+  placeholder: Passwort
+  btn: einreichen
+  successMsg: Authentifizierungserfolg
+  FailedMsg: Authentifizierung fehlgeschlagen
+
+# ジャワ語
+jv:
+  title: bukti asli
+  desc: Mangga ketik sandhi.
+  placeholder: sandi
+  btn: Kirim
+  successMsg: bukti asli Sukses
+  FailedMsg: bukti asli gagal
+
+# 韓国語（朝鮮語）
+ko:
+  title: 입증
+  desc: 암호를 입력하십시오.
+  placeholder: 암호
+  btn: 제출
+  successMsg: 인증 성공
+  FailedMsg: 인증 실패
+
+# フランス語
+fr:
+  title: Authentification
+  desc: S'il vous plaît entrer le mot de passe.
+  placeholder: mot de passe
+  btn: Soumettre
+  successMsg: Succès d'authentification
+  FailedMsg: Authentification échouée
+
+# ベトナム語
+vi:
+  title: Xác thực
+  desc: Xin vui lòng nhập mật khẩu.
+  placeholder: mật khẩu
+  btn: Đệ trình
+  successMsg: Xác thực thành công
+  FailedMsg: Quá trình xác thực đã thất bại
+
+# テルグ語
+te:
+  title: ప్రామాణీకరణ
+  desc: పాస్వర్డ్ని ఎంటర్ చెయ్యండి.
+  placeholder: పాస్వర్డ్
+  btn: సమర్పించండి
+  successMsg: ప్రామాణీకరణ విజయం
+  FailedMsg: ప్రామాణీకరణ విఫలమైంది
+
+# マラーティー語
+mr:
+  title: प्रमाणीकरण
+  desc: संकेतशब्द प्रविष्ट करा.
+  placeholder: पासवर्ड
+  btn: सादर
+  successMsg: प्रमाणीकरण यशस्वी
+  FailedMsg: प्रमाणीकरण अयशस्वी
+
+# タミル語
+ta:
+  title: அங்கீகார
+  desc: தயவு செய்து கடவுச்சொல்லை உள்ளிடவும்.
+  placeholder: கடவுச்சொல்
+  btn: சமர்ப்பிக்கவும்
+  successMsg: அங்கீகாரம் வெற்றி
+  FailedMsg: அங்கீகரிப்பு தோல்வியுற்றது
+
+# トルコ語
+tr:
+  title: Kimlik doğrulama
+  desc: Lütfen şifreyi giriniz.
+  placeholder: parola
+  btn: Gönder
+  successMsg: Kimlik Doğrulama Başarı
+  FailedMsg: Kimlik doğrulama başarısız oldu
+
+# ウルドゥー語
+ur:
+  title: توثیق
+  desc: پاس ورڈ درج کریں.
+  placeholder: پاس ورڈ
+  btn: جمع
+  successMsg: توثیق کامیابی
+  FailedMsg: تصدیق میں ناکام رہے
