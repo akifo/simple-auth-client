@@ -4,3 +4,8 @@ declare var ENV:any
 declare module TemplateHtmlStub {
   declare var exports: string;
 }
+
+// for import yaml module
+declare module TemplateYamlStub {
+  declare var exports: Object;
+}

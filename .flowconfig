@@ -12,3 +12,6 @@
 # for import html module
 module.system=haste
 module.name_mapper='.*\.html$' -> 'TemplateHtmlStub'
+# for import yaml module
+module.name_mapper='.*\.yaml$' -> 'TemplateYamlStub'
+
