@@ -29,7 +29,7 @@ if (ENV !== 'production') {
 -------------------------------------------------------------- */
 type PropOptions = {
   password?: string | number | Array<string>,
-  style?: string,
+  // style?: string,
   lang?: string,
   title?: string,
   desc?: string,
@@ -43,7 +43,7 @@ type PropOptions = {
 -------------------------------------------------------------- */
 let settings:PropOptions = {
   password: 'test',
-  style: 'basic',
+  // style: 'basic',
   lang: 'en',
   title: undefined,
   desc: undefined,
@@ -86,6 +86,7 @@ const sac: {
     this.$password = document.getElementById(SAC_PASS_ID);
     this.$btn = document.getElementById(SAC_FORM_BTN);
     this.setText();
+    this.$password.focus();
   },
 
   // remove SAC view

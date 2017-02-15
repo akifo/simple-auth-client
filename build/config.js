@@ -10,7 +10,7 @@ import postcss from 'rollup-plugin-postcss';
 import yaml from 'rollup-plugin-yaml';
 
 // PostCSS plugins
-// import simplevars from 'postcss-simple-vars';
+import simplevars from 'postcss-simple-vars';
 import nested from 'postcss-nested';
 import cssnext from 'postcss-cssnext';
 // import cssnano from 'cssnano';
@@ -71,7 +71,7 @@ function genConfig (opts) {
       }),
       postcss({
         plugins: [
-        //   simplevars(),
+          simplevars(),
           nested(),
           cssnext({warnForDuplicates: false})
           // cssnano()
