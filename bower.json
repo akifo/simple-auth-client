@@ -17,8 +17,13 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "build",
+    "flow",
+    "flow-typed",
+    "src",
     "test",
-    "tests",
-    "flow-typed"
+    "babelrc.org",
+    "rollup.config.js",
+    "rollup.md"
   ]
 }
